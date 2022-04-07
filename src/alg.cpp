@@ -43,7 +43,7 @@ int CP(char a) {
     return 0;
 }
 std::string infx2pstfx(std::string inf) {
-    TStack<char, 100> cstack;
+    TStack<char> cstack;
     std::vector<char> queue;
     for (int i = 0; i < inf.size(); i++) {
         if (bratik(inf[i])) {
@@ -92,7 +92,7 @@ std::string infx2pstfx(std::string inf) {
     return end;
 }
 int eval(std::string post) {
-    TStack<int, 100> istack;
+    TStack<int> istack;
     for (int i = 0; i < post.size(); i++) {
         if (post[i] == ' ') {
             continue;
