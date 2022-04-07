@@ -25,8 +25,7 @@ class TStack {
         top--;
     }
     void push(T item) {
-        if (top < size - 1)
-            arr[++top] = item;
+        arr[++top] = item;
     }
     bool tiptop() const {
         return arr[top] == '(';
