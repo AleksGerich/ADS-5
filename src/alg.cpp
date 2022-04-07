@@ -1,7 +1,7 @@
 // Copyright 2021 NNTU-CS
 #include <string>
 #include <map>
-#include "tstack.h"
+#include "alg.h"
 #include <vector>
 char domath(std::string a) {
     int res = 0;
@@ -76,8 +76,7 @@ std::string infx2pstfx(std::string inf) {
             }
             cstack.del();
             continue;
-        }
-        else {
+        } else {
             queue.push_back(inf[i]);
         }
     }
@@ -100,7 +99,7 @@ int eval(std::string post) {
         if (bratik(post[i]) != 1) {
             istack.push(post[i] - 48);
             continue;
-        } 
+        }
         if (bratik(post[i])) {
             std::string a;
             a += istack.pop() + 48;
