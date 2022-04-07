@@ -1,8 +1,9 @@
 // Copyright 2021 NNTU-CS
 #include <string>
 #include <map>
-#include "alg.h"
 #include <vector>
+#include "alg.h"
+
 char domath(std::string a) {
     int res = 0;
     int p1 = a[0] - 48;
