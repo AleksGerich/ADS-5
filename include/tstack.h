@@ -3,9 +3,9 @@
 #define INCLUDE_TSTACK_H_
 #include <iostream>
 
-template<class T, int size>
+template<class T>
 class TStack {
-public:
+ public:
     TStack() :top(-1) { }
     T get() const {
         return arr[top];
@@ -42,8 +42,10 @@ public:
         }
         return 0;
     }
-private:
-    T arr[size];
-    int top;
+
+ private:
+     const int size = 100;
+     T arr[size];
+     int top;
 };
-#endif
+#endif  // INCLUDE_TSTACK_H_
