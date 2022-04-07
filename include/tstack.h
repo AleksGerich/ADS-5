@@ -44,8 +44,7 @@ class TStack {
     }
 
  private:
-     const int size = 100;
-     T arr[size];
+     T arr[100];
      int top;
 };
 #endif  // INCLUDE_TSTACK_H_
