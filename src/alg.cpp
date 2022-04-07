@@ -3,6 +3,7 @@
 #include <map>
 #include <vector>
 #include "alg.h"
+#include "tstack.h"
 
 char domath(std::string a) {
     int res = 0;
