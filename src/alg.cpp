@@ -3,7 +3,6 @@
 #include <map>
 #include "tstack.h"
 #include <vector>
-
 char domath(std::string a) {
     int res = 0;
     int p1 = a[0] - 48;
@@ -22,7 +21,6 @@ char domath(std::string a) {
     }
     return res;
 }
-
 bool bratik(char a) {
     const int pr = 4;
     char priority[pr] = { '+', '-', '*', '/' };
@@ -32,7 +30,6 @@ bool bratik(char a) {
     }
     return 0;
 }
-
 int CP(char a) {
     const int pr = 2, len = 2;
     char priority[pr][len] = { {'+', '-'}, {'*', '/'} };
@@ -44,8 +41,6 @@ int CP(char a) {
     }
     return 0;
 }
-
-
 std::string infx2pstfx(std::string inf) {
     TStack<char, 100> cstack;
     std::vector<char> queue;
@@ -96,8 +91,7 @@ std::string infx2pstfx(std::string inf) {
     }
     return end;
 }
-
-int eval(std::string pref) {
+int eval(std::string post) {
     TStack<int, 100> istack;
     for (int i = 0; i < post.size(); i++) {
         if (post[i] == ' ') {
@@ -115,7 +109,6 @@ int eval(std::string pref) {
             istack.push(domath(a));
             continue;
         }
-        
     }
     return (istack.get());
 }
