@@ -5,20 +5,20 @@
 #include "alg.h"
 #include "tstack.h"
 
-char domath(std::string a) {
+int domath(char a, int *arr) {
     int res = 0;
-    int p1 = a[0] - 48;
-    int p2 = a[2] - 48;
-    if (a[1] == '+') {
+    int p1 = arr[0];
+    int p2 = arr[1];
+    if (a == '+') {
         res = p1 + p2;
     }
-    if (a[1] == '-') {
+    if (a == '-') {
         res = p2 - p1;
     }
-    if (a[1] == '*') {
+    if (a == '*') {
         res = p1 * p2;
     }
-    if (a[1] == '/') {
+    if (a == '/') {
         res = p2 / p1;
     }
     return res;
@@ -60,6 +60,10 @@ std::string infx2pstfx(std::string inf) {
                 bool flag = 0;
                 while (flag != 1) {
                     queue.push_back(cstack.pop());
+                    if (cstack.isEmpty()) {
+                        flag = 1;
+                        cstack.push(inf[i]);
+                    }
                     if (CP(inf[i]) > cstack.CPT() || cstack.tiptop()) {
                         cstack.push(inf[i]);
                         flag = 1;
@@ -104,13 +108,14 @@ int eval(std::string post) {
             continue;
         }
         if (bratik(post[i])) {
-            std::string a;
-            a += istack.pop() + 48;
-            a += post[i];
-            a += istack.pop() + 48;
-            istack.push(domath(a));
+            int arr[2];
+            for (int i = 0; i < 2; i++) {
+                arr[i] = istack.pop();
+            }
+            istack.push(domath(post[i], arr));
             continue;
         }
+        
     }
     return (istack.get());
 }
