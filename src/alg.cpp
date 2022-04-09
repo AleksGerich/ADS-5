@@ -115,7 +115,6 @@ int eval(std::string post) {
             istack.push(domath(post[i], arr));
             continue;
         }
-        
     }
     return (istack.get());
 }
