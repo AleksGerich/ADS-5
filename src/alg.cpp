@@ -90,6 +90,7 @@ std::string infx2pstfx(std::string inf) {
         end += queue[i];
         end += " ";
     }
+    end.pop_back();
     return end;
 }
 int eval(std::string post) {
